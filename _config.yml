@@ -20,8 +20,7 @@
 
 title: CrazyFridayApps
 email: hello@crazyfridayapps.com
-description: >- # this means to ignore newlines until "baseurl:"
-Crazyfridayapps - building mobile solutions that work!
+description: Crazyfridayapps - building mobile solutions that work! # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.crazyfridayapps.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: boigfriday
