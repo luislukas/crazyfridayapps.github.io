@@ -27,7 +27,7 @@ twitter_username: boigfriday
 github_username:  luislukas
 
 # Build settings
-theme: jekyll-theme-hacker
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
 include: [".well-known"]
