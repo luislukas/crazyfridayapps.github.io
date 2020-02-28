@@ -27,7 +27,7 @@ twitter_username: boigfriday
 github_username:  luislukas
 
 # Build settings
-theme: minima
+theme: jekyll-theme-hacker
 plugins:
   - jekyll-feed
 include: [".well-known"]
