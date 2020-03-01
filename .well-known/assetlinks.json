@@ -1,14 +1,9 @@
-[
-  {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.crazyfriday.hoffers",
-      "sha256_cert_fingerprints": [
-        "A4:B8:C2:5E:0E:4B:F0:C4:E1:CE:B7:F5:11:B1:05:B9:22:02:AA:21:3F:A2:66:A8:70:FE:3E:02:2A:C0:DD:C7"
-      ]
-    }
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.crazyfriday.hoffers",
+    "sha256_cert_fingerprints":
+    ["A4:B8:C2:5E:0E:4B:F0:C4:E1:CE:B7:F5:11:B1:05:B9:22:02:AA:21:3F:A2:66:A8:70:FE:3E:02:2A:C0:DD:C7"]
   }
-]
+}]
