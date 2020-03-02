@@ -1,9 +1,14 @@
 ---
+title: Setting up app links and Instant apps
 layout: post
-title:  "Setting up app links and Instant apps"
-date:   2020-02-27 21:44:43 +0000
+date: '2020-02-27 21:44:43 +0000'
 categories: android
 ---
+
+We've recently helped one of our clients to build an [Instant app](https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle) to drive more conversion and enhance user experience. Another of the requirements was to add deep-linking to it so that when a marketing campaing is launch their customers could benefit from the new enchanced journey.
+Here are the steps to get all this done and working:
+
+
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
 Jekyll requires blog post files to be named according to the following format:
