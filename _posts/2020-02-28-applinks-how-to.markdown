@@ -26,7 +26,7 @@ Our first step it's to convince the client to enroll into the _App signing progr
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="some.package.appid">
 	<dist:module dist:instant="true" />
-	<application></application>
+	<application android:targetSandboxVersion="2"></application>
 </manifest>  
 {% endhighlight %}
 
@@ -67,6 +67,45 @@ This part is quite straight forward:
 
 #### Adding App Links for Instant Apps
 _App links_ just map _links_ with your _app content_ ie. if the user taps in [www.mywebsite.com/showMeOffers](www.mywebsite.com/showMeOffers) then our app will launch and display a native result rather than a website. This happens though only if the user has our app _installed_. The point of adding _App Links_ to _Instant Apps_ is that the user doesn't have the app installed in the device **but** is offered a native experience rather than a web based experience.
-To create _App Links_ we just need to:
-*
-The developer documentation [here](https://developer.android.com/training/app-links/instant-app-links) explains quite well how to do this but in a nutshell:
+To create _App Links_ we just need thits two steps:
+* Create _Deep links_ to your app content using _intent filters_.
+
+{% highlight xml %}
+<intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="http"
+                    android:host="www.hostname.com"
+                    android:pathPrefix="/somePath" />
+                <data android:scheme="https" />
+            </intent-filter>
+{% endhighlight %}
+
+> Add this to the _installable app_ as well as the _Instant app_. It's mandatory to have `https` protocol.
+
+* Verify ownership of your domain and the app. To achieve this:   
+	* Just add `android:autoVerify="true"` to the previous intent filter. 
+	* Create an accessible file `assetlinks.json` under https://domain.name/.well-known/assetlinks.json. 
+{% highlight json %}
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.apppackage.appname.",
+      "sha256_cert_fingerprints": [
+        "upload certificate sha256"
+      ]
+    }
+  }
+]
+{% endhighlight %}
+> When the app is launched, it automatically verifies it against the domain. There's a restriction where you can only verify one _Instant app_ per domain. To get the `sha256` just `keytool -list -v -keystore my-release-key.keystore` 
+
+After those steps you are ready to send your marketing emails with the deep links - your customers using a phone will benfit from the _Instant app_ where the rest wil open your website.
+
+For more information, how to test _Instant app_ links  and the official documentation just head [here](https://developer.android.com/training/app-links/instant-app-links).
